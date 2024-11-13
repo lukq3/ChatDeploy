@@ -54,17 +54,6 @@ def area_chat():
     with contenedorDelChat:
         mostrar_historial()
 
-modelo = configurar_pagina()
-clienteUsuario = crear_usuario_groq()
-inicializar_estado()
-area_chat() #Función de esta clase
-mensaje = st.chat_input("Por favor, escribí un mensaje")
-
-if mensaje: 
-    actualizar_historial("user", mensaje,"🗣️") # Función de esta clase
-    chat_completo = configurar_modelo(clienteUsuario, modelo, mensaje)
-    actualizar_historial("assistant", chat_completo, "🤖")
-    st.rerun()
 
 def generar_respuesta (chat_completo):
     respuesta_completa = ""
@@ -94,3 +83,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
