@@ -1,7 +1,7 @@
 [theme]
-primaryColor="#1F5D72"
+primaryColor="white"
 backgroundColor="grey"
-secondaryBackgroundColor="#1F5D72"
+secondaryBackgroundColor="white"
 textColor="371d01"
 font="sans serif"
 base="dark"
