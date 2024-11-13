@@ -59,8 +59,38 @@ clienteUsuario = crear_usuario_groq()
 inicializar_estado()
 area_chat() #Función de esta clase
 mensaje = st.chat_input("Por favor, escribí un mensaje")
+
 if mensaje: 
     actualizar_historial("user", mensaje,"🗣️") # Función de esta clase
     chat_completo = configurar_modelo(clienteUsuario, modelo, mensaje)
     actualizar_historial("assistant", chat_completo, "🤖")
     st.rerun()
+
+def generar_respuesta (chat_completo):
+    respuesta_completa = ""
+    for frase in chat_completo:
+        if frase.choices[0].delta.content:
+            respuesta_completa += frase.choices[0].delta.content
+            yield frase.choices[0].delta.content
+    return respuesta_completa
+
+def main():
+    modelo = configurar_pagina()
+    clienteUsuario = crear_usuario_groq()
+    inicializar_estado()
+    area_chat()
+    mensaje = st.chat_input("Por favor, escribí un mensaje")
+    if mensaje:
+        actualizar_historial("user", mensaje, "🗣️")
+        chat_completo = configurar_modelo(clienteUsuario, modelo, mensaje)
+
+        if chat_completo:
+            with st.chat_message("assistant"):
+                respuesta_completa = st.write_stream(generar_respuesta(chat_completo))
+                actualizar_historial("assistant",respuesta_completa, "🤖")
+
+                st.rerun()
+
+
+if __name__ == "__main__":
+    main()
