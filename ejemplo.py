@@ -9,7 +9,7 @@ st.title("Mi primera  Aplicacion de Streamlit")
 nombre = st.text_input("Cual es tu nombre?")
 
 if st.button("Saludar"):
-    st.write(f'Hola {nombre}!, Bienvenido a mi Chatbot, pedazo de trolin tkm!') 
+    st.write(f'Hola {nombre}!, Bienvenido a mi Chatbot, puto de mierda!') 
 
 modelos = ['llama3-8b-8192', 'llama3-70b-8192', 'mixtral-8x7b-32768']
 
@@ -76,7 +76,7 @@ def main():
         if chat_completo:
             with st.chat_message("assistant"):
                 respuesta_completa = st.write_stream(generar_respuesta(chat_completo))
-                actualizar_historial("assistant",respuesta_completa, "🐱‍👤")
+                actualizar_historial("assistant",respuesta_completa, "🤖")
 
                 st.rerun()
 
