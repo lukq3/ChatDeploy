@@ -9,7 +9,7 @@ st.title("Mi primera  Aplicacion de Streamlit")
 nombre = st.text_input("Cual es tu nombre?")
 
 if st.button("Saludar"):
-    st.write(f'Hola {nombre}!, Bienvenido a mi Chatbot!') 
+    st.write(f'Hola {nombre}!, Bienvenido a mi Chatbot, pedazo de trolin tkm!') 
 
 modelos = ['llama3-8b-8192', 'llama3-70b-8192', 'mixtral-8x7b-32768']
 
