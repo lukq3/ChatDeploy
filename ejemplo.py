@@ -76,7 +76,7 @@ def main():
         if chat_completo:
             with st.chat_message("assistant"):
                 respuesta_completa = st.write_stream(generar_respuesta(chat_completo))
-                actualizar_historial("assistant",respuesta_completa, "🤖")
+                actualizar_historial("assistant",respuesta_completa, "🐱‍👤")
 
                 st.rerun()
 
